@@ -3,7 +3,9 @@ Embei Blog is a free to use software created to help people create their own blo
 
 # Installation
 1. Clone `main` branch
-```git clone https://github.com/MBorowiecki/embei-blog.git```
+```
+git clone https://github.com/MBorowiecki/embei-blog.git
+```
 2. Run `npm install` in main directory
 3. Create `.env` file which contains:
 ```
