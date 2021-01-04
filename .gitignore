@@ -105,3 +105,4 @@ dist
 
 # Custom config required to run
 .env
+config/db.js

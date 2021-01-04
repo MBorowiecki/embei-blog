@@ -35,8 +35,8 @@ router.put('/:id', (req, res, next) => checkRole(req, res, next, ['admin', 'mode
     })
 })
 
-router.delete('/', (req, res, next) => checkRole(req, res, next, ['admin']), (req, res) => {
-    const { id } = req.body;
+router.post('/delete/:id', (req, res, next) => checkRole(req, res, next, ['admin']), (req, res) => {
+    const { id } = req.params;
 
     if(id){
         PostsModel.findByIdAndRemove(id, (err, post) => {
