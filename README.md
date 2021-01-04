@@ -11,4 +11,18 @@ git clone https://github.com/MBorowiecki/embei-blog.git
 ```
 JWT_SECRET=yourserversecretkey
 ```
-4. Run `npm start` to start server and voila, you have your own blog engine
+4. Create `config/db.js` file which contains:
+```
+const username = 'username';
+const password = 'password';
+const dbName = 'database_name';
+const host = 'database_host'
+
+module.exports = {
+    username,
+    password,
+    dbName,
+    host
+}
+```
+5. Run `npm start` to start server and voila, you have your own blog server
