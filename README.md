@@ -26,3 +26,12 @@ module.exports = {
 }
 ```
 5. Run `npm start` to start server and voila, you have your own blog server
+
+# Custom routes
+If you want to create your own routes, please follow the pattern I started.
+Create your file containing unique routes and functions for these routes ie. `posts.js`.
+Add your route file to `app.js` in root folder of project
+```
+app.use(`/api/${APIVersion}/routesName/`, yourRoutesImport);
+```
+That's all. You can now connect to your custom routes.
