@@ -4,6 +4,8 @@ const jwt = require('jsonwebtoken');
 require('dotenv').config();
 
 const UserModel = require('../models/users');
+const checkRole = require('../helpers/checkRole');
+const roles = require('../config/roles');
 
 let router = express.Router();
 
@@ -42,7 +44,7 @@ router.post('/login', (req, res) => {
     }
 })
 
-router.post('/register', (req, res) => {
+router.post('/register', (req, res, next) => checkRole(req, res, next, [roles.ADMIN]), (req, res) => {
     const { name, email, password, role } = req.body;
 
     if(name, email, password){

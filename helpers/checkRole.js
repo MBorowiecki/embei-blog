@@ -4,8 +4,19 @@ const app = express();
 
 const checkRole = (req, res, next, roles) => {
     const { token } = req.body;
+    const hToken = req.headers.authorization;
 
-    let userProfile = jwt.decode(token);
+    let userProfile;
+
+    if(token){
+        userProfile = jwt.decode(token);
+    }else{
+        if(hToken){
+            userProfile = jwt.decode(hToken);
+        }else{
+            res.status(401).json({msg: 'Not authorized!'});
+        }
+    }
 
     if(roles.includes(userProfile.role)){
         next();

@@ -9,6 +9,9 @@ const PostsSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    imagePath: {
+        type: String
+    },
     author: {
         type: String,
         required: true
