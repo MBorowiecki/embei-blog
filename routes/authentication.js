@@ -28,6 +28,8 @@ router.post('/login', (req, res) => {
                             }, process.env.JWT_SECRET, {
                                 expiresIn: 1200
                             });
+                            
+                            res.header("Access-Control-Allow-Origin", "*");
                             res.status(200).json({
                                 name: user.name,
                                 email: user.email,
@@ -37,6 +39,7 @@ router.post('/login', (req, res) => {
                         }
                     })
                 }else{
+                    res.header("Access-Control-Allow-Origin", "*");
                     res.status(401).json({'msg': 'No user with this email'})
                 }
             }
