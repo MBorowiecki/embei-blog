@@ -11,4 +11,27 @@ git clone https://github.com/MBorowiecki/embei-blog.git
 ```
 JWT_SECRET=yourserversecretkey
 ```
-4. Run `npm start` to start server and voila, you have your own blog engine
+4. Create `config/db.js` file which contains:
+```
+const username = 'username';
+const password = 'password';
+const dbName = 'database_name';
+const host = 'database_host'
+
+module.exports = {
+    username,
+    password,
+    dbName,
+    host
+}
+```
+5. Run `npm start` to start server and voila, you have your own blog server
+
+# Custom routes
+If you want to create your own routes, please follow the pattern I started.
+Create your file containing unique routes and functions for these routes ie. `posts.js`.
+Add your route file to `app.js` in root folder of project
+```
+app.use(`/api/${APIVersion}/routesName/`, yourRoutesImport);
+```
+That's all. You can now connect to your custom routes.
