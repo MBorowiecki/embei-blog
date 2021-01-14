@@ -26,11 +26,7 @@ app.use(`/api/${APIVersion}/posts/`, postsRouter);
 app.use(`/api/${APIVersion}/auth/`, authRouter);
 app.use(`/api/${APIVersion}/users`, usersRouter);
 
-app.get(`/api/${APIVersion}/uploads/:name`, (req, res) => {
-    if(req.params.name){
-        res.status(200).sendFile(path.resolve(`uploads/${req.params.name}`))
-    }
-})
+app.use(`/api/${APIVersion}/uploads/`, express.static(path.join(__dirname, 'uploads')))
 
 app.listen(process.env.PORT || PORT, () => {
     console.log(`Server is running on port ${PORT}`)

@@ -21,6 +21,10 @@ const UserSchema = new mongoose.Schema({
         type: String,
         default: "user",
         enum: ["user", "redactor", "moderator", "admin"]
+    },
+    avatarName: {
+        type: String,
+        default: "Artboards_Diversity_Avatars_by_Netguru-14.png"
     }
 })
 

@@ -24,17 +24,19 @@ router.post('/login', (req, res) => {
                                 name: user.name,
                                 email: user.email,
                                 role: user.role,
-                                password: user.password
+                                password: user.password,
+                                avatarName: user.avatarName
                             }, process.env.JWT_SECRET, {
                                 expiresIn: 1200
                             });
-                            
+
                             res.header("Access-Control-Allow-Origin", "*");
                             res.status(200).json({
                                 name: user.name,
                                 email: user.email,
                                 role: user.role,
-                                token: token
+                                token: token,
+                                avatarName: user.avatarName
                             });
                         }
                     })
