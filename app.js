@@ -5,7 +5,7 @@ const fs = require('fs');
 const path = require('path');
 
 const app = express();
-const PORT = 6006;
+const PORT = 5000;
 const APIVersion = 'v1';
 
 const postsRouter = require('./routes/posts');
@@ -32,6 +32,6 @@ app.get(`/api/${APIVersion}/uploads/:name`, (req, res) => {
     }
 })
 
-app.listen(PORT, () => {
+app.listen(process.env.PORT || PORT, () => {
     console.log(`Server is running on port ${PORT}`)
 })
